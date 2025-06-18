@@ -1,94 +1,68 @@
+import './Signup.css';
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
-    const [name, setName]=useState('');
-    const [email, setEmail]=useState('');
-    const [password, setPassword]=useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const navigate= useNavigate();
-    
-    const handleSubmit = (e) =>{
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/register' , {name , email , password})
-        .then((res)=>{
-            // console.log(res);
-            navigate('/login')
-        })
-        .catch((err)=>{
-            console.log('Error in signup handlesubmit',err.message)
-            alert(err.message)
-    });
-        
+        axios.post('http://localhost:3001/register', { name, email, password })
+            .then((res) => {
+                navigate('/login');
+            })
+            .catch((err) => {
+                console.log('Error in signup handlesubmit', err.message);
+                alert(err.message);
+            });
     }
 
     return (
-        <>
-
-
-            <div className="d-flex justify-content-center align-items-center bg-secondary vh-100"> <div className="bg-white p-3 rounded w-25">
-                <h2>Register</h2>
+        <div className="signup-container">
+            <div className="signup-card">
+                <h2 className="signup-title">Create Account</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Name</strong>
-                        </label>
+                    <div className="form-group">
+                        <label>Name</label>
                         <input
                             type="text"
-                            placeholder="Enter Name"
-                            autocomplete="off"
-                            name="email"
-                            className="form-control rounded-0"
-                            onChange={(e)=>setName(e.target.value)}
+                            placeholder="Enter your name"
+                            autoComplete="off"
+                            onChange={(e) => setName(e.target.value)}
                         />
                     </div>
-
-
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Email</strong>
-                        </label>
+                    <div className="form-group">
+                        <label>Email</label>
                         <input
-
                             type="email"
-                            placeholder="Enter Email"
-                            autocomplete="off"
-                            name="email"
-                            className="form-control rounded-0"
-                            onChange={(e)=>setEmail(e.target.value)}
+                            placeholder="Enter your email"
+                            autoComplete="off"
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-
-
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Password</strong>
-                        </label>
+                    <div className="form-group">
+                        <label>Password</label>
                         <input
-                        
-                        type="password"
-                        placeholder="Enter Password"
-                        name="password"
-                        className="form-control rounded-0"
-                        onChange={(e)=>setPassword(e.target.value)}
+                            type="password"
+                            placeholder="Enter your password"
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-0">
+                    <button type="submit" className="submit-btn">
                         Register
                     </button>
-                    </form>
-
-
-                    <p>Already Have an Account</p>
-                    <Link to="/login" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">
-                        Login
-                    </Link>
-                
+                </form>
+                <p className="switch-text">
+                    Already have an account? <Link to="/login">Login</Link>
+                </p>
             </div>
-            </div>
-        </>
-    )
+        </div>
+    );
 }
 
-export default Signup
+export default Signup;

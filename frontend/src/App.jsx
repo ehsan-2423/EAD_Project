@@ -3,7 +3,7 @@ import './App.css';
 import Login from './Login.jsx';
 import MovieApp from './MovieApp.jsx';
 import Footer from './footer.jsx'
-import Signup from './signup.jsx';
+import Signup from './Signup.jsx';
 import {BrowserRouter, Routes , Route} from 'react-router-dom'
 
 function App() {
@@ -20,9 +20,6 @@ function App() {
       
     
     </BrowserRouter>
-    
-    {/* <MovieApp/>
-    <Footer/> */}
     </>
   );
 }

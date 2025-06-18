@@ -9,6 +9,10 @@ app.use(express.json())
 app.use(cors())
 
 mongoose.connect('mongodb+srv://ehsan:12345@cluster0.mb4qclh.mongodb.net/EAD_Project')
+.then(() =>console.log('Database connected'))
+.catch((err) =>console.log('Not db connected',err))
+
+
 
 app.post('/register', (req,res)=>{
     User.create(req.body)

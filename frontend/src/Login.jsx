@@ -1,82 +1,61 @@
+import './Login.css';
 import axios from 'axios';
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
-  const [email, setEmail]=useState('');
-      const [password, setPassword]=useState('');
- 
-      const navigate= useNavigate();
-    
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        axios.post('http://localhost:3001/login' , {name , email , password})
-        .then((res)=>{
-          let msg=res.data
-          console.log(res.data);
-          if(res.data==='Success Login'){
-              navigate('/home')
-          }else{
-            alert(msg);
-          }
-            
-        })
-        .catch((err)=>console.log(err));
-        
-    }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    return (
-        <>
+  const navigate = useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('http://localhost:3001/login', { email, password })
+      .then((res) => {
+        let msg = res.data;
+        console.log(res.data);
+        if (res.data === 'Success Login') {
+          navigate('/home');
+        } else {
+          alert(msg);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 
-            <div className="d-flex justify-content-center align-items-center bg-secondary vh-100"> <div className="bg-white p-3 rounded w-25">
-                <h2>Login</h2>
-                <form onSubmit={handleSubmit}>
-                    
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Email</strong>
-                        </label>
-                        <input
-
-                            type="email"
-                            placeholder="Enter Email"
-                            autocomplete="off"
-                            name="email"
-                            className="form-control rounded-0"
-                            onChange={(e)=>setEmail(e.target.value)}
-                        />
-                    </div>
-
-
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Password</strong>
-                        </label>
-                        <input
-                        
-                        type="password"
-                        placeholder="Enter Password"
-                        name="password"
-                        className="form-control rounded-0"
-                        onChange={(e)=>setPassword(e.target.value)}
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-success w-100 rounded-0">
-                        Login
-                    </button>
-                    </form>
-
-
-                    <p>Don't Have an Account</p>
-                    <Link to="/register" className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">
-                        Register
-                    </Link>
-                
-            </div>
-            </div>
-        </>
-    )
+  return (
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Welcome Back</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              autoComplete="off"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="submit-btn">
+            Login
+          </button>
+        </form>
+        <p className="switch-text">
+          Don’t have an account? <Link to="/register">Register</Link>
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default Login
+export default Login;
