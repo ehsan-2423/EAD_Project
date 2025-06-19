@@ -26,7 +26,7 @@ app.post('/register', (req,res)=>{
 })
 
 
-app.post('/login', (req,res)=>{
+app.post('/', (req,res)=>{
     const {email, password}= req.body
     User.findOne({email: email})
     .then((user)=>{

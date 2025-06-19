@@ -1,4 +1,4 @@
-import './Footer.css'
+import '../ComponentStyling/Footer.css'
 
 import { BiLogoFacebookCircle , BiLogoYoutube ,BiLogoInstagramAlt , BiLogoGithub } from "react-icons/bi";
 

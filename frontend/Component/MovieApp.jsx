@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import './MovieApp.css';
+import '../ComponentStyling/MovieApp.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import axios from 'axios';
+import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 function MovieApp() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -135,9 +137,10 @@ function MovieApp() {
 
 
   return (
+    <>
     <div id="home">
       <header className="header" >
-        <a href="#home" className="logo">Movie Cinema</a>
+        <a href="" className="logo">Movie Cinema</a>
         <div className="search-bar">
           <input
             type="text"
@@ -152,8 +155,8 @@ function MovieApp() {
           </button>
         </div>
         <nav className="navi">
-          <a href="#home">Home</a>
-          <a href="#footer">About Us</a>
+          <a href="/home">Home</a>
+          <a href="/about">About Us</a>
           {/* <a href="#">Contact</a> */}
           <a
             href="#favorites"
@@ -162,6 +165,7 @@ function MovieApp() {
           >
             Favorites
           </a>
+          <Link to='/'>Logout</Link>
         </nav>
       </header>
 
@@ -238,6 +242,8 @@ function MovieApp() {
         </div>
       )}
     </div>
+    <Footer/>
+    </>
   );
 }
 

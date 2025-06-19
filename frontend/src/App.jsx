@@ -1,9 +1,9 @@
 
-import './App.css';
-import Login from './Login.jsx';
-import MovieApp from './MovieApp.jsx';
-import Footer from './footer.jsx'
-import Signup from './Signup.jsx';
+import '../ComponentStyling/App.css';
+import Login from '../Component/Login.jsx';
+import MovieApp from '../Component/MovieApp.jsx';
+import Footer from '../Component/Footer.jsx'
+import Signup from '../Component/Signup.jsx';
 import {BrowserRouter, Routes , Route} from 'react-router-dom'
 
 function App() {
@@ -11,9 +11,10 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login/>}/>
         <Route path="/register" element={<Signup/>}/>
-        <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<MovieApp/>}/>
+        <Route path="/about" element={<Footer/>}/>
 
       </Routes>
 
