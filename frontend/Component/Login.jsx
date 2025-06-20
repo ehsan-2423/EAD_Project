@@ -1,12 +1,14 @@
 import '../ComponentStyling/Login.css';
 import axios from 'axios';
-import React from 'react';
+import {useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import {LoginContext} from './LoginContext';
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useContext(LoginContext);
 
   const formik = useFormik({
     initialValues: {
@@ -27,6 +29,7 @@ function Login() {
           let msg = res.data;
           if (msg === 'Success Login') {
             resetForm();
+            login();
             navigate('/home');
           } else {
             alert(msg);

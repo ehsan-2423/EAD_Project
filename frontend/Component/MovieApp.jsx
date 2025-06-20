@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useContext} from "react";
 import '../ComponentStyling/MovieApp.css';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import axios from 'axios';
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginContext } from './LoginContext';
+
 
 function MovieApp() {
+
   const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
   const [sortBy, setSortBy] = useState('popularity.desc');
@@ -14,8 +17,12 @@ function MovieApp() {
   const [selectedGenre, setSelectedGenre] = useState('');
   const [expandedMovieId, setExpandedMovieId] = useState(null);
   const [favorites, setFavorites] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false); // New state to control favorites panel visibility
+  const [showFavorites, setShowFavorites] = useState(false); 
+  
 
+  const { logout } = useContext(LoginContext);
+  const navigate = useNavigate();
+  
 
 
 
@@ -135,6 +142,11 @@ function MovieApp() {
 
   }
 
+  const handleLogout=()=>{
+    logout();
+    navigate('/')
+  }
+
 
   return (
     <>
@@ -155,9 +167,9 @@ function MovieApp() {
           </button>
         </div>
         <nav className="navi">
-          <a href="/home">Home</a>
-          <a href="/about">About Us</a>
-          {/* <a href="#">Contact</a> */}
+          {/* <a href="/home">Home</a>   */}
+          {/* <a href="/about">About Us</a> */}
+          <Link to='/about'>About us</Link>
           <a
             href="#favorites"
             className="favorites-link"
@@ -165,7 +177,7 @@ function MovieApp() {
           >
             Favorites
           </a>
-          <Link to='/'>Logout</Link>
+          <button onClick={handleLogout}>Logout</button>
         </nav>
       </header>
 
