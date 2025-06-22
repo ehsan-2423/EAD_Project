@@ -1,0 +1,74 @@
+/* Container */
+.details-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #D6C0B3 , #e8dbd4);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card */
+.movie-details-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #E4E0E1;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #D6C0B3;
+  max-width: 900px;
+  width: 100%;
+  gap: 30px;
+}
+
+/* Poster image */
+.poster {
+  width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Text details */
+.details-text {
+  flex: 1;
+  color: #5a4940;
+}
+
+.details-text h1 {
+  font-size: 28px;
+  color: #5a4940;
+  margin-bottom: 12px;
+}
+
+.details-text p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Back button */
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 8px 14px;
+  background-color: #916c57;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background-color: #000000;
+}
+
+/* Loading state */
+.loading {
+  font-size: 18px;
+  color: #5a4940;
+}

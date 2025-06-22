@@ -8,6 +8,8 @@ import {BrowserRouter, Routes , Route} from 'react-router-dom'
 import Error from '../Component/Error.jsx';
 import ProtectedRoutes from '../Component/ProtectedRoutes.jsx';
 import { LoginProvider } from '../Component/LoginContext.jsx';
+import MovieDetails from '../Component/MovieDetails.jsx';
+import About from '../Component/About.jsx';
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
         <Route path="/register" element={<Signup/>}/>
         <Route element={<ProtectedRoutes/>}>
           <Route path="/home" element={<MovieApp/>}/>
-          <Route path="/about" element={<Footer/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/home/:id" element={<MovieDetails />} />
         </Route>
 
         <Route path="*" element={<Error/>}/>

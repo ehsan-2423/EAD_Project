@@ -114,8 +114,10 @@ function MovieApp() {
 
 
 
-  const toggleDescription = (movieId) => {
-    setExpandedMovieId(expandedMovieId === movieId ? null : movieId);
+  const toggleDescription = (movie) => {
+    setExpandedMovieId(expandedMovieId === movie.id ? null : movie.id);
+    console.log(movie);
+    
   };
 
 
@@ -152,7 +154,7 @@ function MovieApp() {
     <>
     <div id="home">
       <header className="header" >
-        <a href="" className="logo">Movie Cinema</a>
+        <a href="#" className="logo">Movie Cinema</a>
         <div className="search-bar">
           <input
             type="text"
@@ -171,7 +173,7 @@ function MovieApp() {
           {/* <a href="/about">About Us</a> */}
           <Link to='/about'>About us</Link>
           <a
-            href="#favorites"
+            href="#"
             className="favorites-link"
             onClick={() => setShowFavorites(!showFavorites)}
           >
@@ -221,12 +223,15 @@ function MovieApp() {
             ) : (
               <p>{movie.overview.substring(0, 50)}...</p>
             )}
-            <button
-              onClick={() => toggleDescription(movie.id)}
+            {/* <button
+              onClick={() => toggleDescription(movie)}
               className="read-more"
             >
               {expandedMovieId === movie.id ? 'Show Less' : 'Read More'}
-            </button>
+            </button> */}
+            <Link to={`/home/${movie.id}`} className="read-more">
+                Read More
+            </Link>
             <button  className="favButton"  onClick={() => toggleFavorite(movie) }>
               {isFavorite(movie.id) ? <MdFavorite className="favIcon" color="red" /> : <MdFavoriteBorder  className="favIcon"/>}
             </button>
