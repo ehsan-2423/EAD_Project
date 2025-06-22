@@ -2,7 +2,7 @@
 
 MovieCinema is a sleek and modern React web application that allows users to explore, search, and manage their favorite movies. Designed with a clean and responsive UI, it integrates with [TMDb (The Movie Database)](https://www.themoviedb.org/) API to bring real-time movie data to users.
 
-![MovieCinema Screenshot](./assets/moviecinema-banner.png) <!-- Optional: add a screenshot link -->
+![MovieCinema Screenshot](movie_screenshot.png) <!-- Optional: add a screenshot link -->
 
 ---
 
