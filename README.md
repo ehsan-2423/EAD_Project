@@ -88,12 +88,6 @@ src/
 
 ---
 
-## 🌐 Live Demo (Optional)
-
-> [Demo Link](https://your-live-demo-url.com)
-
----
-
 ## 🤝 Contributing
 
 Contributions are welcome!
