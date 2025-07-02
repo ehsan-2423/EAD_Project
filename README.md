@@ -95,12 +95,6 @@ Feel free to open issues or submit pull requests.
 
 ---
 
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).
-
----
-
 ## 👨‍💻 Developer
 
 **Ehsan Hussain**
